@@ -23,24 +23,24 @@ config = Config(empty_scene_path, SCENE_WIDTH, SCENE_HEIGHT, CHARACTER_HEIGHT, M
 characters = []
 
 for model in list(Models.keys()):
-    characters.append(Character(model, CHARACTER_HEIGHT))
+  characters.append(Character(model, CHARACTER_HEIGHT))
 
 print("Prepared characters.")
 
 for i in range(SCENES_NUM):
-    scene = Scene(i, config, characters)
-    scene.calc()
-    scenes.append(scene)
+  scene = Scene(i, config, characters)
+  scene.calc()
+  scenes.append(scene)
 
 print("Prepared scenes.")
 
 print("Started synthesis.")
 
 for scene in scenes:
-    start = time.time()
-    print("Working on scene", scene.id)
-    scene.synthesize()
-    end = time.time()
-    print(f"Completed scene {scene.id} in {round(end-start)} secs")
+  start = time.time()
+  print("Working on scene", scene.id)
+  scene.synthesize()
+  end = time.time()
+  print(f"Completed scene {scene.id} in {round(end-start)} secs")
 
 print("Finished synthesis.")
